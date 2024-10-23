@@ -28,8 +28,10 @@ test:
     - bmi-tester
   imports:
     - pymt_geotiff
+  source_files:
+    - examples
   commands:
-    - bmi-test pymt_geotiff.bmi:GeoTiff -vvv  # [unix]
+    - bmi-test pymt_geotiff.bmi:GeoTiff --config-file=${PWD}/examples/bmi-geotiff.yaml --root-dir=examples -vvv  # [unix]
 
 about:
   home: https://github.com/pymt-lab/pymt_geotiff
