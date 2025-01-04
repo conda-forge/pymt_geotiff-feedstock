@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "pymt_geotiff" %}
 {% set version = "0.2.1" %}
 
@@ -11,21 +12,22 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - bmi-geotiff
 
 test:
   requires:
     - bmi-tester
+    - python {{ python_min }}
   imports:
     - pymt_geotiff
   source_files:
